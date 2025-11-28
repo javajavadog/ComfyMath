@@ -58,6 +58,17 @@ SDXL_EXTENDED_RESOLUTIONS = [
 ]
 
 
+QWEN_SUPPORTED_RESOLUTIONS = [
+    (1328, 1328, 1.0),
+    (1664, 928, 1.793103448275862),
+    (928, 1664, 0.5576923076923077),
+    (1472, 1140, 1.2912280701754386),
+    (1140, 1472, 0.7744565217391305),
+    (1584, 1056, 1.5),
+    (1056, 1584, 0.6666666666666666),
+]
+
+
 class Resolution(ABC):
     @classmethod
     @abstractmethod
@@ -145,9 +156,23 @@ class NearestSDXLExtendedResolution(NearestResolution):
         return SDXL_EXTENDED_RESOLUTIONS
 
 
+class QwenResolution(Resolution):
+    @classmethod
+    def resolutions(cls):
+        return QWEN_SUPPORTED_RESOLUTIONS
+
+
+class NearestQwenResolution(NearestResolution):
+    @classmethod
+    def resolutions(cls):
+        return QWEN_SUPPORTED_RESOLUTIONS
+
+
 NODE_CLASS_MAPPINGS = {
     "CM_SDXLResolution": SDXLResolution,
     "CM_NearestSDXLResolution": NearestSDXLResolution,
     "CM_SDXLExtendedResolution": SDXLExtendedResolution,
     "CM_NearestSDXLExtendedResolution": NearestSDXLExtendedResolution,
+    "CM_QwenResolution": QwenResolution,
+    "CM_NearestQwenResolution": NearestQwenResolution,
 }

@@ -1,4 +1,6 @@
-# ComfyMath
+# ComfyMath - Qwen Resolution
+
+Forked from evanspearman/ComfyMath, only added Qwen resolutions for 2k image output.
 
 Provides Math Nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 
@@ -15,5 +17,5 @@ Provides nodes for:
 From the `custom_nodes` directory in your ComfyUI installation, run:
 
 ```sh
-git clone https://github.com/evanspearman/ComfyMath.git
+git clone https://github.com/javajavadog/ComfyMath.git
 ```
