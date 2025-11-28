@@ -1,6 +1,8 @@
-# ComfyMath - Qwen Resolution
+# ComfyMath - Qwen Resolution / Z-Image Resolution
 
 Forked from evanspearman/ComfyMath, only added Qwen resolutions for 2k image output.
+
+Added Z-Image resolution (both 1024x1024 and 1280x1280)
 
 Provides Math Nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 

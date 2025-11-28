@@ -69,6 +69,36 @@ QWEN_SUPPORTED_RESOLUTIONS = [
 ]
 
 
+Z_IMAGE_RESOLUTIONS_1024 = [
+    (1024, 1024, 1.0),
+    (1152, 896, 1.2857142857142858),
+    (896, 1152, 0.7777777777777778),
+    (1152, 864, 1.3333333333333333),
+    (864, 1152, 0.75),
+    (1248, 832, 1.5),
+    (832, 1248, 0.6666666666666666),
+    (1280, 720, 1.7777777777777777),
+    (720, 1280, 0.5625),
+    (1344, 576, 2.3333333333333335),
+    (576, 1344, 0.42857142857142855),
+]
+
+
+Z_IMAGE_RESOLUTIONS_1280 = [
+    (1280, 1280, 1.0),
+    (1440, 1120, 1.2857142857142858),
+    (1120, 1440, 0.7777777777777778),
+    (1472, 1104, 1.3333333333333333),
+    (1104, 1472, 0.75),
+    (1536, 1024, 1.5),
+    (1024, 1536, 0.6666666666666666),
+    (1600, 896, 1.7857142857142858),
+    (896, 1600, 0.56),
+    (1680, 720, 2.3333333333333335),
+    (720, 1680, 0.42857142857142855),
+]
+
+
 class Resolution(ABC):
     @classmethod
     @abstractmethod
@@ -168,6 +198,30 @@ class NearestQwenResolution(NearestResolution):
         return QWEN_SUPPORTED_RESOLUTIONS
 
 
+class ZImage1024Resolution(Resolution):
+    @classmethod
+    def resolutions(cls):
+        return Z_IMAGE_RESOLUTIONS_1024
+
+
+class NearestZImage1024Resolution(NearestResolution):
+    @classmethod
+    def resolutions(cls):
+        return Z_IMAGE_RESOLUTIONS_1024
+
+
+class ZImage1280Resolution(Resolution):
+    @classmethod
+    def resolutions(cls):
+        return Z_IMAGE_RESOLUTIONS_1280
+
+
+class NearestZImage1280Resolution(NearestResolution):
+    @classmethod
+    def resolutions(cls):
+        return Z_IMAGE_RESOLUTIONS_1280
+
+
 NODE_CLASS_MAPPINGS = {
     "CM_SDXLResolution": SDXLResolution,
     "CM_NearestSDXLResolution": NearestSDXLResolution,
@@ -175,4 +229,8 @@ NODE_CLASS_MAPPINGS = {
     "CM_NearestSDXLExtendedResolution": NearestSDXLExtendedResolution,
     "CM_QwenResolution": QwenResolution,
     "CM_NearestQwenResolution": NearestQwenResolution,
+    "CM_ZImage1024Resolution": ZImage1024Resolution,
+    "CM_NearestZImage1024Resolution": NearestZImage1024Resolution,
+    "CM_ZImage1280Resolution": ZImage1280Resolution,
+    "CM_NearestZImage1280Resolution": NearestZImage1280Resolution,
 }
